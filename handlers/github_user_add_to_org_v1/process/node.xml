@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="github_user_add_to_org" name="Github User Add To Org" schema_version="1.0" version="1">
+    <author>support@kineticdata.com</author>
+    <description>
+        Adds user to github organization by user name.
+    </description>
+    <helpurl></helpurl>
+    <visible>true</visible>
+    <deferrable>false</deferrable>
+    <parameters>
+      <parameter id="role" label="role" required="true" tooltip="Role of user within organization- member or admin"/>
+      <parameter id="add_new_user" label="add new user" required="true" tooltip="GitHub user name of person you wish to add to your organization"/>
+    </parameters>
+    <handler name="github_user_add_to_org" version="1">
+        <infos>
+            <info name="user_name">&lt;%= @info['user_name'] %&gt;</info>
+            <info name="personal_access_token">&lt;%= @info['personal_access_token'] %&gt;</info>
+            <info name="org_name">&lt;%= @info['org_name'] %&gt;</info>
+        </infos>
+        <parameters>
+            <parameter name="role">&lt;%= @parameters['role'] %&gt;</parameter>
+          <parameter name="add_new_user">&lt;%= @parameters['add_new_user'] %&gt;</parameter>
+        </parameters>
+    </handler>
+    <results format="xml">
+    </results>
+</taskDefinition>

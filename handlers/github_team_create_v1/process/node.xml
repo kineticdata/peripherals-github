@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="github_team_create" name="GitHub Team Create"
+	schema_version="1.0" version="1">
+	<author>support@kineticdata.com</author>
+	<description>Create a new team within an existing organization on GitHub.</description>
+	<helpurl></helpurl>
+	<visible>true</visible>
+	<deferrable>false</deferrable>
+	<parameters>
+	    <parameter id="organization_name" label="Organization Name" required="true" tooltip="Organization to create the team in." />
+	    <parameter id="team_name" label="Team Name" required="true" tooltip="Name for new team." />
+	    <parameter id="permissions" label="Permissions" required="true" tooltip="Permissions for the team." menu="pull,push,admin" />
+	    <parameter id="repositories" label="Repositories" required="false" tooltip="Add repositories for the team." />
+	</parameters>
+	<handler name="github_team_create" version="1">
+		<infos>
+			<info name="client_username">&lt;%= @info['client_username'] %&gt;</info>
+			<info name="client_token">&lt;%= @info['client_token'] %&gt;</info>
+		</infos>
+		<parameters>
+		    <parameter name="organization_name">&lt;%= @parameters['organization_name'] %&gt;</parameter>
+		    <parameter name="team_name">&lt;%= @parameters['team_name'] %&gt;</parameter>
+		    <parameter name="permissions">&lt;%= @parameters['permissions'] %&gt;</parameter>
+		    <parameter name="repositories">&lt;%= @parameters['repositories'] %&gt;</parameter>
+		</parameters>
+	</handler>
+	<results format="xml" />
+</taskDefinition>

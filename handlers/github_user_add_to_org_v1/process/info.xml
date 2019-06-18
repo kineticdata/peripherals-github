@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskInfo version="1.0">
+  <info name="user_name" description="Your GitHub User Name."></info>
+  <info name="personal_access_token" description="Personal Access Token generated in GitHub settings."></info>
+  <info name="org_name" description="Name of you organization."></info>
+  <!-- <info name="add_new_user" description="GitHub username of user you wish to add to exsisting organization."></info> -->
+</taskInfo>

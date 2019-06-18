@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taskDefinition id="github_personal_repo_create" name="Github Personal Repo Create" schema_version="1.0" version="1">
+  <author>support@kineticdata.com</author>
+  <description>This handler allows you to post a repository to your own Github.</description>
+  <helpurl></helpurl>
+  <visible>true</visible>
+  <deferrable>false</deferrable>
+  <parameters>
+    <parameter id="name" label="name" required="true" tooltip="Name of the existing repository you wish to create." />
+  </parameters>
+  <handler name="github_personal_repo_create" version="1">
+    <infos>
+      <info name="personal_access_token">&lt;%= @info['personal_access_token'] %&gt;</info>
+    </infos>
+    <parameters>
+      <parameter name="name">&lt;%= @parameters['name'] %&gt;</parameter>
+      <parameter name="description">&lt;%= @parameters['description'] %&gt;</parameter>
+    </parameters>
+  </handler>
+  <results format="xml">
+  </results>
+</taskDefinition>

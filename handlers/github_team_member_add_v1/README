@@ -1,0 +1,34 @@
+== GitHub Team User Add V1
+
+=== Parameters
+[Organization Name]
+	The organization of which the existing team belongs to.
+[Team Name]
+	The name of team for new members to be added.
+[New Members]
+	Usernames of members to be added to team
+	Seperated by commas for multiple users.
+
+=== Results
+	No results are returned
+	
+	No exceptions will be raised for cases such as mispelled organization names,
+	or teams.
+
+==== Sample Configuration
+Organization Name : Acme
+Team Name : Alpha
+New Members : thetajohn, gammaben
+
+=== Detailed Description
+This handler is used for adding new members to an existing team. After authorizing
+the given account using a GitHub token, new members will be added to an existing team.
+
+=== Getting your GitHub personal API access token
+	1. Go to https://www.github.com/settings/applications
+	2. Click "Create new token" in the "Personal API Access Tokens" section.
+	3. Use the new token and username of the account with KineticTask.
+	
+This API token essentially is a password for the user. The user can delete this token
+at any time in their GitHub settings/applications to revoke access of any applications 
+using it.

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taskInfo version="1.0">
+    <info name="client_username" description="User authorized to interact with the organization." />
+    <info name="client_token" description="The client token can be obtained in GitHub's settings/applications." />
+</taskInfo>

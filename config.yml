@@ -1,0 +1,10 @@
+---
+repo-name: peripherals-github
+categories:
+- DevOps
+display-name: GitHub
+manufacture: Github
+product: 
+description: GitHub is a web-based hosting solution for repositories of content and
+  code.
+thumbnail: thumbnail.svg

@@ -20,22 +20,45 @@ class GithubOrganizationRepoCreateV1
       # trailing whitespace)
       @parameters[node.attribute('name').value] = node.text.to_s.strip
     end
+
+    @debug_logging_enabled = ["yes","true"].include?(@info_values['enable_debug_logging'].downcase)
+    @error_handling = @parameters["error_handling"]
   end
 
   def execute()
 
-      url = "https://api.github.com/orgs/#{@info_values['org_name']}/repos?access_token=#{@info_values['access_token']}"
+    # Initialize return data
+    error_message = nil
 
+    begin
+      url = "https://api.github.com/orgs/#{@info_values['org_name']}/repos?access_token=#{@info_values['access_token']}"
+      
       resource = RestClient::Resource.new(url)
 
       data = {name: @parameters['name'], description: @parameters['description']}.to_json
 
-      resource.post(data, {content_type: :json})
+      puts "Calling URL https://api.github.com/orgs/#{@info_values['org_name']}/repos?access_token=XXX" if @debug_logging_enabled
+      response = resource.post(data, {content_type: :json})
 
       results = <<-RESULTS
       <results>
+        <result name="Response Body">#{escape(response.nil? ? {} : response.body)}</result>
+        <result name="Handler Error Message">#{escape(error_message)}</result>
       </results>
       RESULTS
+    rescue RestClient::Exception => e
+      error_message = e.inspect
+
+      results = <<-RESULTS
+      <results>
+        <result name="Handler Error Message">#{escape(error_message)}</result>
+      </results>
+      RESULTS
+
+      # Raise the error if instructed to, otherwise will fall through to
+      # return an error message.
+      raise if @error_handling == "Raise Error"
+    end
 
     return results
 

@@ -1,13 +1,13 @@
-== GitHub Organization Repository Creation
+# GitHub Organization Repository Creation
   Creates Repository to a Github organization.
-=== Parameters
-[name]
-  Name of desired repository user wishes to create.
-[org_name]
-  Name of organization of which you wish to create a new repository in.
+## Parameters
+  * [name]
+    * Name of desired repository user wishes to create.
+  * [org_name]
+    * Name of organization of which you wish to create a new repository in.
 
-=== Info
-[access_token]
+### Info
+* [access_token]
   As of 2/26/1016, Access Tokens using GitHub's oauth2 in an organization requires approval than a callbackURL, where the access token is sent to.
   In order to request this token, you must have a client_ID and a Client_Secret.  This can be found in
   the Org's user setting on github.com when you when you register a new OAuth application.  Here the user should
@@ -16,5 +16,5 @@
   order to make the request and generate the token.  Once the user has acquired this token, they may reuse it.
 
 
-=== Detailed Description
+### Detailed Description
 This handler creates a github repository for an organization.

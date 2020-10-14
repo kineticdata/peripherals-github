@@ -1,32 +1,31 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <taskDefinition id="github_organization_repo_create" name="Github Organization Repo Create" schema_version="1.0" version="1">
- <author>support@kineticdata.com</author>
- <description>This handler allows you to create a repository to a organization you have access to on Github.</description>
- <helpurl></helpurl>
- <visible>true</visible>
- <deferrable>false</deferrable>
- <parameters>
-   <parameter id="error_handling" label="Error Handling" required="true" tooltip="Determine what to return if an error is encountered." menu="Error Message,Raise Error">Raise Error</parameter>
-   <parameter id="visibility" label="Repo Visibility" tooltip="options are private or public. default: public." />
-   <parameter id="name" label="name" required="true" tooltip="Name of the existing repository you wish to create." />
-   <parameter id="description" label="Description" required="false" tooltip="Description of the existing repository you wish to create." />
- </parameters>
- <handler name="github_organization_repo_create" version="1">
-   <infos>
-     <info name="access_token">&lt;%= @info['access_token'] %&gt;</info>
-     <info name="org_name">&lt;%= @info['org_name'] %&gt;</info>
-     <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
-   </infos>
-   <parameters>
-     <parameter name="error_handling">&lt;%= @parameters['error_handling'] %&gt;</parameter>
-     <parameter name="visibility">&lt;%= @parameters['visibility'] %&gt;</parameter>
-     <parameter name="name">&lt;%= @parameters['name'] %&gt;</parameter>
-     <parameter name="description">&lt;%= @parameters['description'] %&gt;</parameter>
-   </parameters>
- </handler>
- <results format="xml">
-     <result name="Handler Error Message"/>
-     <result name="Response Body"/>
- </results>
+  <author>support@kineticdata.com</author>
+  <description>This handler allows you to create a repository to a organization you have access to on Github.</description>
+  <helpurl></helpurl>
+  <visible>true</visible>
+  <deferrable>false</deferrable>
+  <parameters>
+    <parameter id="error_handling" label="Error Handling" required="true" tooltip="Determine what to return if an error is encountered." menu="Error Message,Raise Error">Raise Error</parameter>
+    <parameter id="visibility" required="false" label="Repo Visibility" tooltip="options are private or public. default: public." />
+    <parameter id="name" label="name" required="true" tooltip="Name of the existing repository you wish to create." />
+    <parameter id="description" label="Description" required="false" tooltip="Description of the existing repository you wish to create." />
+  </parameters>
+  <handler name="github_organization_repo_create" version="1">
+    <infos>
+      <info name="access_token">&lt;%= @info['access_token'] %&gt;</info>
+      <info name="org_name">&lt;%= @info['org_name'] %&gt;</info>
+      <info name="enable_debug_logging">&lt;%= @info['enable_debug_logging'] %&gt;</info>
+    </infos>
+    <parameters>
+      <parameter name="error_handling">&lt;%= @parameters['error_handling'] %&gt;</parameter>
+      <parameter name="visibility">&lt;%= @parameters['visibility'] %&gt;</parameter>
+      <parameter name="name">&lt;%= @parameters['name'] %&gt;</parameter>
+      <parameter name="description">&lt;%= @parameters['description'] %&gt;</parameter>
+    </parameters>
+  </handler>
+  <results format="xml">
+      <result name="Handler Error Message"/>
+      <result name="Response Body"/>
+  </results>
 </taskDefinition>
-

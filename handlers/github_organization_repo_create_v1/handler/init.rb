@@ -35,10 +35,12 @@ class GithubOrganizationRepoCreateV1
       
       resource = RestClient::Resource.new(url)
 
-      data = {name: @parameters['name'], description: @parameters['description']}.to_json
+      data = {name: @parameters['name'], description: @parameters['description']}
+
+      data['private'] = true if @parameters['visibility'].downcase == "private"
 
       puts "Calling URL https://api.github.com/orgs/#{@info_values['org_name']}/repos?access_token=XXX" if @debug_logging_enabled
-      response = resource.post(data, {content_type: :json})
+      response = resource.post(data.to_json, {content_type: :json})
 
       results = <<-RESULTS
       <results>

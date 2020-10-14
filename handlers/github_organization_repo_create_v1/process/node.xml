@@ -21,5 +21,7 @@
     </parameters>
   </handler>
   <results format="xml">
+		  <result name="Handler Error Message"/>
+    	<result name="Response Body"/>
   </results>
 </taskDefinition>

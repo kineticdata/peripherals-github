@@ -31,7 +31,13 @@ class GithubOrganizationRepoCreateV1
     error_message = nil
 
     begin
-      url = "https://api.github.com/orgs/#{@info_values['org_name']}/repos?access_token=#{@info_values['access_token']}"
+      org_name = @parameters['org_name'].empty? ? @info_values['org_name'] : @parameters['org_name']
+
+      if org_name.empty?
+        raise StandardError.new "org_name must be defined as an info_value or a parameter."
+      end
+
+      url = "https://api.github.com/orgs/#{org_name}/repos?access_token=#{@info_values['access_token']}"
       
       resource = RestClient::Resource.new(url)
 
@@ -39,9 +45,9 @@ class GithubOrganizationRepoCreateV1
 
       data['private'] = true if @parameters['visibility'].downcase == "private"
 
-      puts "Calling URL https://api.github.com/orgs/#{@info_values['org_name']}/repos?access_token=XXX" if @debug_logging_enabled
+      puts "Calling URL https://api.github.com/orgs/#{org_name}/repos?access_token=XXX" if @debug_logging_enabled
       response = resource.post(data.to_json, {content_type: :json})
-
+      response = nil
       results = <<-RESULTS
       <results>
         <result name="Response Body">#{escape(response.nil? ? {} : response.body)}</result>
@@ -60,6 +66,16 @@ class GithubOrganizationRepoCreateV1
       # Raise the error if instructed to, otherwise will fall through to
       # return an error message.
       raise if @error_handling == "Raise Error"
+    rescue StandardError::Exception => e
+      error_message = e.message
+
+      raise e.message if @error_handling == "Raise Error"
+
+      results = <<-RESULTS
+      <results>
+        <result name="Handler Error Message">#{escape(error_message)}</result>
+      </results>
+      RESULTS
     end
 
     return results

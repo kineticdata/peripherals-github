@@ -5,7 +5,8 @@
     'enable_debug_logging' => 'yes'
   },
   'parameters' => {
-    'error_handling' => 'Rasie Error',
+    'error_handling' => 'Raise Error',
+    'org_name' => 'bar',
     'visibility' => 'private',
     'name' => '',
     'description' => ''

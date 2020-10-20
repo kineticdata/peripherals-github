@@ -8,7 +8,7 @@
 
 ### Info
 * [access_token]
-  As of 2/26/1016, Access Tokens using GitHub's oauth2 in an organization requires approval than a callbackURL, where the access token is sent to.
+  As of 2/26/2016, Access Tokens using GitHub's oauth2 in an organization requires approval than a callbackURL, where the access token is sent to.
   In order to request this token, you must have a client_ID and a Client_Secret.  This can be found in
   the Org's user setting on github.com when you when you register a new OAuth application.  Here the user should
   select the scopes 'repo' and the appropriate corresponding subsequent scopes you desire in the repository creation process.

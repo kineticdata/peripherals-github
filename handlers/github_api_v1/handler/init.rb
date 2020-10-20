@@ -61,7 +61,7 @@ class GithubApiV1
     rescue RestClient::Exception => e
       response_code = e.response.code
 
-      puts "There was an error parsing the JSON error response" if @debug_logging_enabled
+      puts "There was an error in the response from the server." if @debug_logging_enabled
       error_message = e.inspect
 
       # Raise the error if instructed to, otherwise will fall through to

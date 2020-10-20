@@ -2,9 +2,9 @@
 Github REST API V1 Client
 
 ## Parameters
-[Error Handling]
+* [Error Handling]
   Select between returning an error message, or raising an exception.
-[Method]
+* [Method]
   HTTP Method to use for the Kinetic Core API call being made.
   Options are:
     - GET
@@ -12,14 +12,14 @@ Github REST API V1 Client
     - PUT
     - PATCH
     - DELETE
-[Path]
+* [Path]
   The relative API path (to the `api_location` info value) that will be called.
   This value should begin with a forward slash `/`.
-[Body]
+* [Body]
   The body content (JSON) that will be sent for POST, PUT, and PATCH requests.
 
 ## Results
-[Response Body]
+* [Response Body]
   The returned value from the Rest Call (JSON format)
 
 ### Info

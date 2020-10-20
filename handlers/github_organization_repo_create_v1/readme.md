@@ -1,10 +1,16 @@
 # GitHub Organization Repository Creation
   Creates Repository to a Github organization.
 ## Parameters
-  * [name]
-    * Name of desired repository user wishes to create.
-  * [org_name]
-    * Name of organization of which you wish to create a new repository in.
+  * [Error Handling] 
+    Select between returning an error message, or raising an exception.
+  * [Organization Name] 
+    Name of organization of which you wish to create a new repository in.  The parameter will override the Info Value.
+  * [Visibility] 
+    The options are private or public. default: public.
+  * [Name]  
+    Name of desired repository user wishes to create.
+  * [Description] 
+    Description of the existing repository you wish to create.
 
 ### Info
 * [access_token]

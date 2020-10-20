@@ -7,10 +7,10 @@
   <deferrable>false</deferrable>
   <parameters>
     <parameter id="error_handling" label="Error Handling" required="true" tooltip="Determine what to return if an error is encountered." menu="Error Message,Raise Error">Raise Error</parameter>
-    <parameter name="org_name"  
+    <parameter name="org_name" label="Organization Name"
       description="The organisation name you wish to create a repositiory in (This will override the info value).">
     </parameter> 
-    <parameter id="visibility" required="false" label="Repo Visibility" tooltip="options are private or public. default: public." />
+    <parameter id="visibility" required="false" label="Repo Visibility" tooltip="The options are private or public. default: public." />
     <parameter id="name" label="name" required="true" tooltip="Name of the existing repository you wish to create." />
     <parameter id="description" label="Description" required="false" tooltip="Description of the existing repository you wish to create." />
   </parameters>

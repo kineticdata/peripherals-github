@@ -2,6 +2,6 @@
 
 <taskInfo version="1.0">
   <info name="access_token"  type="encrypted" description="The access token for the Github account"></info>
-  <info name="org_name"  description="The organisation name you wish to create a repositiory in."></info>
+  <info name="org_name"  description="The organization name you wish to create a repository in."></info>
   <info name="enable_debug_logging" description="True or False">false</info>
 </taskInfo>

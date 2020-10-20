@@ -1,6 +1,12 @@
 # Github API V1
 Github REST API V1 Client
 
+## Info Values
+  * [access_token] 
+    The access token for the Github account.
+  * [enable_debug_logging] 
+    True or False whether to log.
+
 ## Parameters
 * [Error Handling]
   Select between returning an error message, or raising an exception.
@@ -26,7 +32,7 @@ Github REST API V1 Client
 * [Response Code]
   The http code number that the request resulted in.
 
-### Info
+### Notes
 * [access_token]
   * As of 2/26/1016, Access Tokens using GitHub's oauth2 in an organization requires approval than a callbackURL, where the access token is sent to.
   In order to request this token, you must have a client_ID and a Client_Secret.  This can be found in

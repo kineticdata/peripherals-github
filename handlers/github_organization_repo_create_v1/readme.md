@@ -1,5 +1,14 @@
 # GitHub Organization Repository Creation
   Creates Repository to a Github organization.
+
+## Info Values
+  * [access_token] 
+    The access token for the Github account.
+  * [org_name] 
+    The organization name you wish to create a repository in.
+  * [enable_debug_logging] 
+    True or False whether to log.
+
 ## Parameters
   * [Error Handling] 
     Select between returning an error message, or raising an exception.
@@ -18,7 +27,7 @@
   * [Response Body]
     The returned value from the Rest Call (JSON format)
 
-### Info
+### Notes
 * [access_token]
   As of 2/26/2016, Access Tokens using GitHub's oauth2 in an organization requires approval than a callbackURL, where the access token is sent to.
   In order to request this token, you must have a client_ID and a Client_Secret.  This can be found in

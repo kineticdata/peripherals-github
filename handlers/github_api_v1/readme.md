@@ -19,8 +19,12 @@ Github REST API V1 Client
   The body content (JSON) that will be sent for POST, PUT, and PATCH requests.
 
 ## Results
+* [Handler Error Message]
+  Error message if an error was encountered and Error Handling is set to "Error Message".
 * [Response Body]
-  The returned value from the Rest Call (JSON format)
+  The returned value from the Rest Call (JSON format).
+* [Response Code]
+  The http code number that the request resulted in.
 
 ### Info
 * [access_token]

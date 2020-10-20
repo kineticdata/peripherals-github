@@ -12,6 +12,12 @@
   * [Description] 
     Description of the existing repository you wish to create.
 
+## Results
+  * [Handler Error Message]
+    Error message if an error was encountered and Error Handling is set to "Error Message".
+  * [Response Body]
+    The returned value from the Rest Call (JSON format)
+
 ### Info
 * [access_token]
   As of 2/26/2016, Access Tokens using GitHub's oauth2 in an organization requires approval than a callbackURL, where the access token is sent to.

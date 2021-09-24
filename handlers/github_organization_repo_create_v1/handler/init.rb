@@ -37,7 +37,7 @@ class GithubOrganizationRepoCreateV1
         raise StandardError.new "org_name must be defined as an info_value or a parameter."
       end
 
-      url = "https://api.github.com/orgs/#{org_name}/repos?access_token=#{@info_values['access_token']}"
+      url = "https://api.github.com/orgs/#{org_name}/repos"
       
       resource = RestClient::Resource.new(url)
 
@@ -45,8 +45,13 @@ class GithubOrganizationRepoCreateV1
 
       data['private'] = true if @parameters['visibility'].downcase == "private"
 
-      puts "Calling URL https://api.github.com/orgs/#{org_name}/repos?access_token=XXX" if @debug_logging_enabled
-      response = resource.post(data.to_json, {content_type: :json})
+      puts "Calling URL https://api.github.com/orgs/#{org_name}/repos" if @debug_logging_enabled
+      response = resource.post(
+        data.to_json, 
+        {
+          content_type: :json,
+          authorization: "token #{@info_values['access_token']}"
+        })
       response = nil
       results = <<-RESULTS
       <results>

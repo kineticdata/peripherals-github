@@ -46,13 +46,16 @@ class GithubOrganizationRepoCreateV1
       data['private'] = true if @parameters['visibility'].downcase == "private"
 
       puts "Calling URL https://api.github.com/orgs/#{org_name}/repos" if @debug_logging_enabled
+
+      response = nil
+      # create repo
       response = resource.post(
         data.to_json, 
         {
           content_type: :json,
           authorization: "token #{@info_values['access_token']}"
         })
-      response = nil
+      puts response
       results = <<-RESULTS
       <results>
         <result name="Response Body">#{escape(response.nil? ? {} : response.body)}</result>

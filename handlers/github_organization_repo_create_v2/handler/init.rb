@@ -1,7 +1,7 @@
 # Require the dependencies file to load the vendor libraries
 require File.expand_path(File.join(File.dirname(__FILE__), 'dependencies'))
 
-class GithubOrganizationRepoCreateV1
+class GithubOrganizationRepoCreateV2
   def initialize(input)
     # Set the input document attribute
     @input_document = REXML::Document.new(input)
@@ -46,7 +46,9 @@ class GithubOrganizationRepoCreateV1
       data['private'] = true if @parameters['visibility'].downcase == "private"
       data['team_id'] = @parameters['team_id'] if !@parameters['team_id'].empty?
 
-      puts "Calling URL https://api.github.com/orgs/#{org_name}/repos" if @debug_logging_enabled
+      puts "Calling URL #{url}" if @debug_logging_enabled
+      
+      # create repo
       response = resource.post(
         data.to_json, 
         {
@@ -72,20 +74,9 @@ class GithubOrganizationRepoCreateV1
       # Raise the error if instructed to, otherwise will fall through to
       # return an error message.
       raise if @error_handling == "Raise Error"
-    rescue StandardError::Exception => e
-      error_message = e.message
-      
-      raise e.message if @error_handling == "Raise Error"
-
-      results = <<-RESULTS
-      <results>
-        <result name="Handler Error Message">#{escape(error_message)}</result>
-      </results>
-      RESULTS
     end
 
     return results
-
   end
 
 

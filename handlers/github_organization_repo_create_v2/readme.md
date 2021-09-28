@@ -18,6 +18,8 @@
     The options are private or public. default: public.
   * [Name]  
     Name of desired repository user wishes to create.
+  * [Team Id]
+    The Id of the Github team that will be granted read access. 
   * [Description] 
     Description of the existing repository you wish to create.
 
@@ -38,4 +40,4 @@
 
 
 ### Detailed Description
-This handler creates a github repository for an organization.
+This handler creates a github repository for an organization and can give read access to a team.

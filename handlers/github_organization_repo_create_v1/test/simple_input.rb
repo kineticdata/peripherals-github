@@ -6,9 +6,9 @@
   },
   'parameters' => {
     'error_handling' => 'Raise Error',
-    'org_name' => 'bar',
+    'org_name' => '',
     'visibility' => 'private',
-    'name' => '',
+    'name' => 'temp',
     'description' => ''
   }
 }

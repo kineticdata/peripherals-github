@@ -24,13 +24,18 @@ class GithubPersonalRepoCreateV1
 
   def execute()
 
-      url = "https://api.github.com/user/repos?access_token=#{@info_values['personal_access_token']}"
+      url = "https://api.github.com/user/repos"
 
       resource = RestClient::Resource.new(url)
 
       data = { name: @parameters['name'], description: @parameters['description']}.to_json
 
-      resource.post(data, { content_type: :json })
+      resource.post(
+        data, 
+        {
+          content_type: :json,
+          authorization: "token #{@info_values['access_token']}"
+        })
 
       results = <<-RESULTS
       <results>

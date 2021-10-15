@@ -2,40 +2,43 @@
   Creates Repository to a Github organization.
 
 ## Info Values
-  * [access_token] 
+  [access_token] 
     The access token for the Github account.
-  * [org_name] 
+  
+  [org_name] 
     The organization name you wish to create a repository in.
-  * [enable_debug_logging] 
+  
+  [enable_debug_logging] 
     True or False whether to log.
 
 ## Parameters
-  * [Error Handling] 
+  [Error Handling] 
     Select between returning an error message, or raising an exception.
-  * [Organization Name] 
+  
+  [Organization Name] 
     Name of organization of which you wish to create a new repository in.  The parameter will override the Info Value.
-  * [Visibility] 
+  
+  [Visibility] 
     The options are private or public. default: public.
-  * [Name]  
+  
+  [Name]
     Name of desired repository user wishes to create.
-  * [Description] 
+  
+  [Description] 
     Description of the existing repository you wish to create.
 
 ## Results
-  * [Handler Error Message]
+  [Handler Error Message]
     Error message if an error was encountered and Error Handling is set to "Error Message".
-  * [Response Body]
+  
+  [Response Body]
     The returned value from the Rest Call (JSON format)
 
-### Notes
-* [access_token]
-  As of 2/26/2016, Access Tokens using GitHub's oauth2 in an organization requires approval than a callbackURL, where the access token is sent to.
-  In order to request this token, you must have a client_ID and a Client_Secret.  This can be found in
-  the Org's user setting on github.com when you when you register a new OAuth application.  Here the user should
-  select the scopes 'repo' and the appropriate corresponding subsequent scopes you desire in the repository creation process.
-  Since you need a callback URL, the user may want to consider a third party web client such as Google's PostMan in
-  order to make the request and generate the token.  Once the user has acquired this token, they may reuse it.
+## Notes
+In order to use the generic handler an access token is required.
+  * A personal [access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) can be used in place of [Web application flow](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow).  The instructions in the link are easy to follow.
+  * The access token will require the appropriate scope of 'repo' be set.  
+  * For a user to create a repo for the organization the user must have admin permission.
 
-
-### Detailed Description
+## Detailed Description
 This handler creates a github repository for an organization.

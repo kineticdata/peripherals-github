@@ -1,16 +1,15 @@
-## GitHub Personal Repository Creation
+# GitHub Personal Repository Creation
   Creates Repository on Users Personal list.
-### Parameters
+## Info Values
+[personal_access_token]
+  Personal Access Token of user generated prior to and external to of this handler. Review notes below for instructions on generating a PAT.
+## Parameters
 [name]
   Name of desired repository user wishes to create.
 
-### Info
-[personal_access_token]
-  Personal Access Token of user generated prior to, and external of this handler.  In order to generate a Personal Access Token,
-  as of 2/26/2016, the user must have a registered GitHub account.  Follow [Github instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create a Personal Access Token.
-  When you create a Personal Access Token, you must select the scopes 'repo' and the appropriate corresponding subsequent scopes
-  you desire in the repository creation process.
-
-
-### Detailed Description
+## Notes
+In order to use the generic handler an access token is required.
+  * A personal [access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) can be used in place of [Web application flow](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow).  The instructions in the link are easy to follow.
+  * The access token will require the appropriate scope of 'repo' be set.
+## Detailed Description
 This handler creates a github repository for a user.  
